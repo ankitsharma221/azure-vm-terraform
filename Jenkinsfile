@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        terraform 'terraform'   // Refers to the Terraform tool you configured in Jenkins
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -23,7 +27,6 @@ pipeline {
 
         stage('Terraform Apply') {
             steps {
-                // Apply only if you want automatic provisioning
                 input message: "Approve to apply Terraform changes?"
                 sh 'terraform apply tfplan'
             }
