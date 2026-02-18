@@ -8,8 +8,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Pull code from GitHub
-                checkout scm
+                // Explicit Git checkout from your repo
+                git branch: 'main', url: 'https://github.com/ankitsharma221/azure-vm-terraform.git'
             }
         }
 
